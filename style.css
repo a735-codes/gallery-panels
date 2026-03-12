@@ -1,0 +1,143 @@
+/* ─── Gallery Panels Extension ──────────────────────────────────────────────
+   Minimal resizable, moveable floating image panels.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── Panel shell ──────────────────────────────────────────────────────────── */
+
+.ga-panel {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: #0e0e12;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    z-index: 1000;
+    min-width: 180px;
+    min-height: 120px;
+}
+
+/* ── Header / drag bar ────────────────────────────────────────────────────── */
+
+.ga-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 2px 4px;
+    background: transparent;
+    cursor: grab;
+    user-select: none;
+    flex-shrink: 0;
+    height: 24px;
+    /* Fade out when not hovered */
+    opacity: 0;
+    transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.ga-panel:hover .ga-header {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.ga-header:active {
+    cursor: grabbing;
+}
+
+/* ── Label — hidden, only shown on hover via title tooltip ────────────────── */
+
+.ga-label {
+    display: none;
+}
+
+/* ── Button row ───────────────────────────────────────────────────────────── */
+
+.ga-btn-row {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.ga-btn {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 1;
+    padding: 1px 5px;
+    height: 18px;
+    transition: background 0.1s, color 0.1s;
+}
+
+.ga-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.ga-close-btn:hover {
+    background: rgba(200, 60, 60, 0.65);
+    border-color: rgba(200, 60, 60, 0.9);
+    color: #fff;
+}
+
+.ga-popout-btn:hover {
+    background: rgba(60, 140, 200, 0.55);
+    border-color: rgba(60, 140, 200, 0.8);
+    color: #fff;
+}
+
+/* ── Media container ─────────────────────────────────────────────────────── */
+
+.ga-media-wrap {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0e0e12;
+    min-height: 0;
+}
+
+.ga-media {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+video.ga-media {
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Resize handles ──────────────────────────────────────────────────────── */
+
+.ga-resize-handle {
+    position: absolute;
+    z-index: 10;
+}
+
+.ga-resize-nw { top: 0;    left: 0;    width: 12px; height: 12px; cursor: nw-resize; }
+.ga-resize-ne { top: 0;    right: 0;   width: 12px; height: 12px; cursor: ne-resize; }
+.ga-resize-sw { bottom: 0; left: 0;    width: 12px; height: 12px; cursor: sw-resize; }
+.ga-resize-se { bottom: 0; right: 0;   width: 12px; height: 12px; cursor: se-resize; }
+.ga-resize-n  { top: 0;    left: 12px; right: 12px;  height: 5px; cursor: n-resize; }
+.ga-resize-s  { bottom: 0; left: 12px; right: 12px;  height: 5px; cursor: s-resize; }
+.ga-resize-w  { top: 12px; left: 0;    bottom: 12px; width: 5px;  cursor: w-resize; }
+.ga-resize-e  { top: 12px; right: 0;   bottom: 12px; width: 5px;  cursor: e-resize; }
+
+
+
+/* ── Panel border highlight on hover ─────────────────────────────────────── */
+
+.ga-panel:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+}

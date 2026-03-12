@@ -1,0 +1,12 @@
+{
+    "display_name": "Gallery Panels",
+    "loading_order": 110,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "a735",
+    "version": "1.1.4",
+    "homePage": "",
+    "auto_update": false
+}
